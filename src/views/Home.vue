@@ -1,17 +1,17 @@
 <template>
   <div class="home container">
-    <h3>Home</h3>
+    <h3>Welcome to ChitChat</h3>
     <div v-if="showLogin">
       <h5>Log in to your account</h5>
       <LoginForm></LoginForm>
       <hr>
-      <p1>Don't have an account? <span @click="showLogin = false">Sign up</span></p1>
+      <p>Don't have an account? <span @click="showLogin = false">Sign up</span></p>
     </div>
     <div v-else>
-      <h5>Create an acount</h5>
+      <h5>Create an account</h5>
       <SignupForm></SignupForm>
       <hr>
-      <p1>Have an account? <span @click="showLogin = true">Log in</span></p1>
+      <p>Have an account? <span @click="showLogin = true">Log in</span></p>
     </div>
   </div>
 </template>
@@ -33,7 +33,41 @@ export default defineComponent({
 
 <style>
 .home {
+  width: 100%;
   text-align: center;
-  padding: 15px 0;
+  padding: 10px 0;
+}
+/* form styles */
+.home form {
+  width: 100%;
+  margin: 10px auto;
+}
+.home input {
+  width: 80%;
+  padding: 10px 10px;
+  box-sizing: border-box;
+  border: 1px solid rgb(139, 139, 139);
+  outline: none;
+  color: rgb(37, 37, 37);
+  margin: 10px auto;
+  text-align: left;
+}
+.home button {
+  width: 80%;
+  margin: 10px auto;
+}
+.home span {
+  color: rgb(60, 111, 252);
+  cursor: pointer;
+}
+.home span:hover {
+  text-decoration: underline;
+}
+.home hr {
+  width: 80%;
+  color: rgba(150, 150, 150, 0.384);
+}
+.home p {
+  font-size: 15px;
 }
 </style>
