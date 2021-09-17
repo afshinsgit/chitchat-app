@@ -22,12 +22,13 @@ import SignupForm from '../components/SignupForm.vue'
 import LoginForm from '../components/LoginForm.vue'
 
 export default defineComponent({
- components: { SignupForm, LoginForm },
- setup() {
-   const showLogin = ref<boolean>(true);
-   
-   return { showLogin }
- }
+  components: { SignupForm, LoginForm },
+  name: 'Home',
+  setup() {
+    const showLogin = ref<boolean>(true);
+    
+    return { showLogin }
+  }
 });
 </script>
 
@@ -59,6 +60,7 @@ export default defineComponent({
 .home span {
   color: rgb(60, 111, 252);
   cursor: pointer;
+  font-weight: bold;
 }
 .home span:hover {
   text-decoration: underline;
