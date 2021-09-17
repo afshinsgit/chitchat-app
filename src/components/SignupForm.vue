@@ -15,7 +15,7 @@ import { useSignup } from '../composables/useSignup'
 export default defineComponent({
   name: "SignupForm",
 
-  setup() {
+  setup(props, context) {
 
     const { error, signup } = useSignup();
 
@@ -27,6 +27,7 @@ export default defineComponent({
       await signup(email.value, password.value, username.value);
       if (!error.value) {
         console.log('user signed up!');
+        context.emit('signup');
       }
     }
 

@@ -3,13 +3,13 @@
     <h3>Welcome to ChitChat</h3>
     <div v-if="showLogin">
       <h5>Log in to your account</h5>
-      <LoginForm></LoginForm>
+      <LoginForm @login="redirectToChatroom()"></LoginForm>
       <hr>
       <p>Don't have an account? <span @click="showLogin = false">Sign up</span></p>
     </div>
     <div v-else>
       <h5>Create an account</h5>
-      <SignupForm></SignupForm>
+      <SignupForm @signup="redirectToChatroom()"></SignupForm>
       <hr>
       <p>Have an account? <span @click="showLogin = true">Log in</span></p>
     </div>
@@ -20,14 +20,20 @@
 import { defineComponent, ref } from 'vue'
 import SignupForm from '../components/SignupForm.vue'
 import LoginForm from '../components/LoginForm.vue'
+import { useRouter } from 'vue-router'
 
 export default defineComponent({
   components: { SignupForm, LoginForm },
   name: 'Home',
   setup() {
     const showLogin = ref<boolean>(true);
+    const router = useRouter();
+
+    function redirectToChatroom() {
+      router.push({name: 'Chatroom'});
+    }
     
-    return { showLogin }
+    return { showLogin, router, redirectToChatroom }
   }
 });
 </script>

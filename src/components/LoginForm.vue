@@ -14,7 +14,7 @@ import { useLogin } from '../composables/useLogin'
 export default defineComponent({
   name: "LoginForm",
 
-  setup() {
+  setup(props, context) {
 
     const { error, login } = useLogin();
 
@@ -25,6 +25,7 @@ export default defineComponent({
       await login(email.value, password.value);
       if(!error.value) {
         console.log('user logged in!');
+        context.emit('login');
       }
     }
     return { email, password, error, handleSubmit }
