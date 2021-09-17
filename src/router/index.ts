@@ -7,6 +7,11 @@ const routes: Array<RouteRecordRaw> = [
     name: 'Home',
     component: Home
   },
+  {
+    path: '/Chatroom',
+    name: 'Chatroom',
+    component: () => import('../views/Chatroom.vue')
+  }
 ]
 
 const router = createRouter({
