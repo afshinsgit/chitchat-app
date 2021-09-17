@@ -3,25 +3,34 @@
     <input type="text" required placeholder="Username" v-model="username">
     <input type="email" required placeholder="Email" v-model="email">
     <input type="password" required placeholder="Password" v-model="password">
+    <div class="error">{{ error }}</div>
     <button>SIGN UP</button>
   </form>
 </template>
 
 <script lang="ts">
 import { defineComponent, ref } from 'vue';
+import { useSignup } from '../composables/useSignup'
 
 export default defineComponent({
-  name: "Home",
+  name: "SignupForm",
+
   setup() {
+
+    const { error, signup } = useSignup();
+
     const username = ref<string>('');
     const email = ref<string>('');
     const password = ref<string>('');
 
-    function handleSubmit() {
-      console.log(username.value, email.value, password.value);
+    async function handleSubmit(): Promise<void> {
+      await signup(email.value, password.value, username.value);
+      if (!error.value) {
+        console.log('user signed up!');
+      }
     }
 
-    return { username, email, password, handleSubmit }
+    return { username, email, password, error, handleSubmit }
   }
 });
 </script>
