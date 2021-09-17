@@ -18,7 +18,15 @@ button {
   border: 0;
   padding: 10px 20px;
   cursor: pointer;
+  font-family: sans-serif;
 }
 .home button:hover {
   background: rgba(43, 79, 179, 0.945);
+}
+
+.error {
+  color: rgb(223, 53, 53);
+  font-size: 12px;
+  width: 80%;
+  margin: 4px auto;
 }
