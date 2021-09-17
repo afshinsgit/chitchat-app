@@ -13,7 +13,6 @@ async function login(email: string, password: string) {
     error.value = null;
     return response;
   } catch(err) {
-    console.log(err.message);
     error.value = err.message;
   }
 }
