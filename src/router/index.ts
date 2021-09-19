@@ -1,5 +1,18 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
 import Home from '../views/Home.vue'
+import { projectAuth } from '../firebase/firebase'
+
+
+// Authentication guard
+// @ts-ignore
+function requireAuth(to, from, next) {
+  const user = projectAuth.currentUser;
+  if(!user) {
+    next({ name: 'Home'})
+  } else {
+    next();
+  }
+}
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -8,9 +21,10 @@ const routes: Array<RouteRecordRaw> = [
     component: Home
   },
   {
-    path: '/Chatroom',
+    path: '/chatroom',
     name: 'Chatroom',
-    component: () => import('../views/Chatroom.vue')
+    component: () => import('../views/Chatroom.vue'),
+    beforeEnter: requireAuth
   }
 ]
 
