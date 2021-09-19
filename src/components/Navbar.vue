@@ -1,5 +1,5 @@
 <template>
-  <nav v-if="user">
+  <nav v-if="currentUser">
     <div>
       <p>Hey there... {{ currentUser.displayName }}</p>
       <p class="email">Currently logged in as... email</p>
@@ -17,7 +17,7 @@ import { getUser } from '../composables/getUser'
 
 export default defineComponent({
   name: 'Navbar',
-  setup(props, context) {
+  setup() {
     
     const { error, logout } = useLogout();
     const { currentUser } = getUser();
