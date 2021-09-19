@@ -54,6 +54,7 @@ export default defineComponent({
   padding: 10px 10px;
   box-sizing: border-box;
   border: 1px solid rgb(139, 139, 139);
+  border-radius: 4px;
   outline: none;
   color: rgb(37, 37, 37);
   margin: 10px auto;

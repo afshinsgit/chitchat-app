@@ -18,6 +18,7 @@ button {
   border: 0;
   padding: 10px 20px;
   cursor: pointer;
+  border-radius: 4px;
   font-family: sans-serif;
 }
 .home button:hover {
