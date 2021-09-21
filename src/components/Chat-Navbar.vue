@@ -2,7 +2,7 @@
   <nav v-if="currentUser">
     <div>
       <p>Hey there... {{ currentUser.displayName }}</p>
-      <p class="email">Currently logged in as... email</p>
+      <p class="email">Currently logged in as... {{ currentUser.email }}</p>
       <div class="error">{{ error }}</div>
     </div>
     <button @click="handleLogout()">Logout</button>
@@ -16,7 +16,7 @@ import { useLogout } from '../composables/useLogout'
 import { getUser } from '../composables/getUser'
 
 export default defineComponent({
-  name: 'Navbar',
+  name: 'ChatNavbar',
   setup() {
     
     const { error, logout } = useLogout();
