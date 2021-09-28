@@ -1,11 +1,4 @@
-interface FirebaseConfig {
-  apiKey: string; 
-  authDomain: string; 
-  projectId: string; 
-  storageBucket: string; 
-  messagingSenderId: string; 
-  appId: string; 
-}
+import { FirebaseConfig } from '../../types/index'
 
 export const firebaseConfig: FirebaseConfig = {
   apiKey: process.env.VUE_APP_FIREBASE_API_KEY,
