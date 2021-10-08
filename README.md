@@ -1,4 +1,4 @@
-# chitchat-app
+# WIP: chitchat-app
 
 ## Project setup
 ```
